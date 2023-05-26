@@ -2,8 +2,6 @@ import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, 
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { CreateStudentResponseDto } from './dto/createStudentResponse.dto';
 import { CreateStudentBodyDto } from './dto/createStudentBody.dto';
-import { Student } from './student.entity';
-import { SaveOptions, RemoveOptions, QueryFailedError } from 'typeorm';
 import { StudentService } from './student.service';
 import { DeleteStudentParamsDto } from './dto/deleteStudentParams.dto';
 import { updateStudentParamsDto } from './dto/updateStudentParams.dto';
@@ -19,19 +17,16 @@ export class StudentController {
   async getStudent(
     @Param() params: getStudentParamsDto
   ): Promise<any> {
-    try {
+
       let student = await this.studentService.get(params);
       return  student ;
-    } catch (error) {
-      console.log(error)
-      throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED)
-    }
+      
   }
 
   @ApiOperation({
-      summary:
-        // tslint:disable-next-line: max-line-length
-        'Registra a un estudiante',
+    summary:
+      // tslint:disable-next-line: max-line-length
+      'Registra a un estudiante',
   })
   @Post('/')
   @ApiResponse({ status: 200, type: CreateStudentResponseDto })
@@ -41,7 +36,6 @@ export class StudentController {
   ): Promise<any> {
 
       let savedStudent = await this.studentService.save(bodyDto);
-
       return  savedStudent ;
 
   }
@@ -60,7 +54,6 @@ export class StudentController {
     ): Promise<any> {
 
         let updatedStudent = await this.studentService.update(params.id,bodyDto);
-
         return  updatedStudent ;
 
     }  
@@ -72,8 +65,7 @@ export class StudentController {
     @Delete(':id')
     @ApiResponse({ status: 200, type: CreateStudentResponseDto })
     async deleteStudent(
-    @Param() params: DeleteStudentParamsDto,
-    @Body() bodyDto,
+    @Param() params: DeleteStudentParamsDto
     ): Promise<any> {
 
         let deletedStudent = await this.studentService.delete(params);

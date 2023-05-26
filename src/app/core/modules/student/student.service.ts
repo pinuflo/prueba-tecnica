@@ -90,10 +90,10 @@ export class StudentService {
 
   }
 
-  async delete(bodyDto:DeleteStudentParamsDto) : Promise<any>
+  async delete(params:DeleteStudentParamsDto) : Promise<any>
   {
     try{
-        let student:Student = await Student.findOne({where: {id:bodyDto.id}})
+        let student:Student = await Student.findOne({where: {id:params.id}})
         if(!student)
         {
             throw new HttpException({
