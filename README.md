@@ -38,7 +38,7 @@ $ npm run start:dev
 $ npm run stress-test
 ```
 
-Las configuraciones de la prueba de carga se encuentran en el archivo "stress-test.yaml"
+Las configuraciones de la prueba de carga se encuentran en el archivo "stress-test.yaml". El servidor debe estar en ejecución.
 
 
 
