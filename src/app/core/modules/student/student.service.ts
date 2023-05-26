@@ -33,7 +33,7 @@ export class StudentService {
             throw new HttpException({
                 success: false,
                 message: 'Revise el ID de la carrera y que el estudiante sea unico.'
-              }, 401);            
+              }, 400);            
         }
         throw e;
     }
@@ -58,7 +58,7 @@ export class StudentService {
             throw new HttpException({
                 success: false,
                 message: 'Revise el ID de la carrera y que el estudiante sea unico.'
-              }, 401);            
+              }, 400);            
         }
         throw e;
     }
@@ -83,7 +83,7 @@ export class StudentService {
             throw new HttpException({
                 success: false,
                 message: 'Revise el ID de la carrera y que el estudiante sea unico.'
-              }, 401);            
+              }, 400);            
         }
         throw e;
     }
@@ -111,7 +111,7 @@ export class StudentService {
             throw new HttpException({
                 success: false,
                 message: 'Revise el ID de la carrera y que el estudiante sea unico.'
-              }, 401);            
+              }, 400);            
         }
         throw e;
     }

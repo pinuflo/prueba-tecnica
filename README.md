@@ -29,6 +29,7 @@
 ## Installation
 
 ```bash
+$ npm install -g artillery
 $ npm install
 ```
 

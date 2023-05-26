@@ -1,0 +1,30 @@
+config:
+  target: 'http://localhost:3200'
+  phases:
+    - duration: 10
+      arrivalRate: 40
+      name: 'student-get'
+scenarios:
+  - flow:
+
+      - post:
+          url: "/api/v1/core/student"
+          json:
+            email: "ignasiop@gmail.com"
+            name: "testeando"               
+            id_career: "1"
+            rut: "6148580-5"   
+          capture:
+            json: "$.data.id"
+            as: "idCreado"
+      - get:
+          url: "/api/v1/core/student/{{idCreado}}"
+      - put:
+          url: "/api/v1/core/student/{{idCreado}}"
+          json:
+            email: "ignasiop@gmail.com"
+            name: "testeando"               
+            id_career: "1"
+            rut: "6148580-5"                   
+      - delete:
+          url: "/api/v1/core/student/{{idCreado}}"            

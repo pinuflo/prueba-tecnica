@@ -8,10 +8,9 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-//import { InjectSentry, SentryService } from '@ntegral/nestjs-sentry';
+
 
 export interface Response<T> {
-  statusCode: number;
   message: string;
   data: T;
 }
@@ -20,7 +19,7 @@ export interface Response<T> {
 export class TransformInterceptor<T>
   implements NestInterceptor<T, Response<T>> {
   constructor(
-    //@InjectSentry() private readonly client: SentryService
+
     ) {}
   intercept(
     context: ExecutionContext,
@@ -30,18 +29,23 @@ export class TransformInterceptor<T>
       .handle()
       .pipe(
         map((data) => ({
-          status: true,
+          success: true,
           data: data,
         })),
         catchError((error: any) => {
-          //this.client.instance().captureException(error);
+
           let http_status = HttpStatus.BAD_REQUEST
+          let message = error.message
           if ('status' in error){
             http_status = error.status
           }
+          if ('response' in error){
+            message = (error as any).response.message
+          }
+
           throw new HttpException({
-            status: false,
-            message: error.message
+            success: false,
+            message: message
           }, http_status);
         })
 

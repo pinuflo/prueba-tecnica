@@ -23,10 +23,6 @@ import { CommandModule } from 'nestjs-command';
       inject:[ConfigService],
       useFactory: async (configService: ConfigService) => ({...configService.get('database')})
     }),
-    FirebaseAuthModule.register({
-      audience: new ConfigService().get('FIREBASE_PROJECT_ID'),
-      issuer: new ConfigService().get('FIREBASE_ISSUER')
-    }),
     ScheduleModule.forRoot(),
     CommandModule,
   ],
