@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { StudentController } from './student.controller';
 import { ConfigService } from '@nestjs/config';
 import { StudentService } from './student.service';
+import { ValidateRut } from 'src/app/shared/validators/rut';
 
 const mockStudent = {id: 1, name: 'pablo', email: 'igna@gmail.com', rut: '2-7' };
 

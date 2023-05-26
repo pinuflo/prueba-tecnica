@@ -3,7 +3,7 @@ import {
     ValidatorConstraintInterface,
     ValidationArguments,
   } from 'class-validator';
-import { validateRut } from '../utils/rut.util';
+import { validateRut } from 'src/app/shared/utils/rut.util';
   
 @ValidatorConstraint({ name: 'validateRut', async: false })
 export class ValidateRut implements ValidatorConstraintInterface {

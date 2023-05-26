@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsDefined, IsNotEmpty, IsString, Matches, Validate} from 'class-validator'
-//import { ValidateRut } from 'src/app/shared/validators/rut';
+//import { ValidateRut } from 'src/app/shared/validators/rut';  #TODO: se puede activar esta linea para validar el rut, pero tiene problemas con las PU
 
 export class UpdateStudentBodyDto {
 
@@ -26,7 +26,7 @@ export class UpdateStudentBodyDto {
     @IsString()
     @IsDefined()
     @IsNotEmpty()
-    //@Validate(ValidateRut)
+    //@Validate(ValidateRut) #TODO: se puede activar esta linea para validar el rut, pero tiene problemas con las PU
     public rut: string;
 
     @ApiProperty({
