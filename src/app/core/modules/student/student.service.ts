@@ -32,7 +32,7 @@ export class StudentService {
             console.error({error:  e.driverError.detail})
             throw new HttpException({
                 success: false,
-                message: 'Revise el ID de la carrera y que el estudiante sea unico.'
+                message: 'Invalid career ID or duplicated DNI.'
               }, 400);            
         }
         throw e;

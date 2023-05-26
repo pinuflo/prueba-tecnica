@@ -11,7 +11,7 @@ scenarios:
           url: "/api/v1/core/student"
           json:
             email: "ignasiop@gmail.com"
-            name: "testeando"               
+            name: "Gabriela"               
             id_career: "1"
             rut: "6148580-5"   
           capture:
@@ -23,7 +23,7 @@ scenarios:
           url: "/api/v1/core/student/{{idCreado}}"
           json:
             email: "ignasiop@gmail.com"
-            name: "testeando"               
+            name: "Gabriela"               
             id_career: "1"
             rut: "6148580-5"                   
       - delete:

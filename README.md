@@ -22,15 +22,16 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
+
+Ejecutar los stgtes comandos en consola:
 
 ```bash
 $ npm install -g artillery
 $ npm install
+$ npm run typeorm:migration:generate 
+$ npm run typeorm:migration:run
 ```
 
 ## Running the app
@@ -46,28 +47,35 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## CURLS ENDPONTS
 
-```bash
-# unit tests
-$ npm run test
+GET
 
-# e2e tests
-$ npm run test:e2e
+curl --location --request GET 'http://localhost:3200/api/v1/core/student/84'
 
-# test coverage
-$ npm run test:cov
-```
+POST 
 
-## Support
+curl --location --request POST 'http://localhost:3200/api/v1/core/student' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'name=dsad' \
+--data-urlencode 'rut=10580108-4' \
+--data-urlencode 'email=ignasiop@gmail.com' \
+--data-urlencode 'id_career=1'
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+UPDATE
 
-## Stay in touch
+curl --location --request PUT 'http://localhost:3200/api/v1/core/student/81' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'name=test' \
+--data-urlencode 'rut=17118923-3' \
+--data-urlencode 'email=ignasiop@gmail.com' \
+--data-urlencode 'id_career=2'
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+DELETE
+
+curl --location --request DELETE 'http://localhost:3200/api/v1/core/student/80' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'name='
 
 ## License
 
