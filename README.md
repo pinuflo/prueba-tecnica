@@ -27,15 +27,22 @@ La base de datos se configura en el .env del repositorio (no fue excluido de git
 ```bash
 # development
 $ npm run start
-
+```
 # watch mode
+```bash
 $ npm run start:dev
+```
 
 # stress test
-$ npm run start:dev
+```bash
+$ npm run stress-test
+```
+
+Las configuraciones de la prueba de carga se encuentran en el archivo "stress-test.yaml"
 
 
-## CURLS ENDPONTS
+
+# CURLS
 
 GET
 
@@ -67,14 +74,7 @@ curl --location --request DELETE 'http://localhost:3200/api/v1/core/student/80' 
 --data-urlencode 'name='
 
 
-## Prueba de carga
 
-Ejecutar el comando 
-
-```bash
-$ npm run stress-test
-```
-Las configuraciones se encuentran en el archivo "stress-test.yaml"
 
 ## License
 
